@@ -83,13 +83,11 @@ class warn_relation:
             if len(i) >= 2:
                 self.apro.append(list(map(lambda x: str(x), i)))
         results = list(apriori(self.apro, min_confidence=0.001, min_support=0.001, min_lift=1))
-        j_resu = {'rule': [], 'support': []}
+        j_resu = []
         for k, v in enumerate(results):
-            # 只看有两个及以上元素的关联集合。单独一个元素的集合没有意义。
             if len(v.items) >= 2:
-                j_resu['rule'].append(' '.join(list(v.items)))
-                j_resu['support'].append(v.support)
-
+                j_resu.append(list(v.items))
+                # j_resu['support'].append(v.support)
         return j_resu
 
 

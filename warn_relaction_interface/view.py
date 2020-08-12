@@ -26,22 +26,30 @@ def warn_realtion(req):
             wr.all_gr_data = req_para['warn_data']
             resu = wr.do_apriori()
             return_data = json.dumps(resu)
+            return HttpResponse(json.dumps({
+                "code": 200,
+                "msg": "no other",
+                "body": {
+                    "resu": return_data
+                }
+            }))
         except Exception as e:
             logger.error(str(e))
             return HttpResponse(json.dumps({
                 "code": 500,
                 "msg": "unknown exception",
                 "body": {
-                    "ret": "4002",
                     "resu": ""
                 }
             }))
+    else:
+        return HttpResponse(json.dumps({
+            "code": 500,
+            "msg": "only accept http post",
+            "body": {
+                "resu": ""
+            }
+        }))
 
-    return HttpResponse(json.dumps({
-        "code": 400,
-        "msg": "no other",
-        "body": {
-            "ret": "4001",
-            "resu": return_data
-        }
-    }))
+
+
