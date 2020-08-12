@@ -28,7 +28,7 @@ def warn_realtion(req):
             return_data = json.dumps(resu)
             return HttpResponse(json.dumps({
                 "code": 200,
-                "msg": "no other",
+                "msg": "success",
                 "body": {
                     "resu": return_data
                 }
