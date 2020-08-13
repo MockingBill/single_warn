@@ -25,12 +25,13 @@ def warn_realtion(req):
             wr = warn_relation(0.001,0.001,0.001)
             wr.all_gr_data = req_para['warn_data']
             resu = wr.do_apriori()
-            return_data = json.dumps(resu)
+
+
             return HttpResponse(json.dumps({
                 "code": 200,
                 "msg": "success",
                 "body": {
-                    "resu": return_data
+                    "resu": resu
                 }
             }))
         except Exception as e:
