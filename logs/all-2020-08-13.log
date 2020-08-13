@@ -1,0 +1,2 @@
+[2020-08-13 09:42:18,489] [basehttp.py:124] [basehttp:log_message] [INFO]- "POST /warn_realtion/ HTTP/1.1" 200 14806
+[2020-08-13 09:45:55,043] [basehttp.py:124] [basehttp:log_message] [INFO]- "POST /warn_realtion/ HTTP/1.1" 200 14806
