@@ -1,3 +1,0 @@
-[2020-10-26 16:12:49,277] [basehttp.py:124] [basehttp:log_message] [INFO]- "POST /warn_realtion/ HTTP/1.1" 200 28049
-[2020-10-26 16:14:33,934] [basehttp.py:124] [basehttp:log_message] [INFO]- "POST /warn_realtion/ HTTP/1.1" 200 1841
-[2020-10-26 16:27:01,251] [basehttp.py:124] [basehttp:log_message] [INFO]- "POST /warn_realtion/ HTTP/1.1" 200 20463
