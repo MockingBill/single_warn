@@ -22,8 +22,9 @@ def warn_realtion(req):
     if req.method == "POST" and req.body != None:
         try:
             req_para = json.loads(req.body)
-            wr = warn_relation(0.001,0.001,0.001)
+            wr = warn_relation(0.02,0.02,0.02)
             wr.all_gr_data = req_para['warn_data']
+            print(wr.all_gr_data)
             resu = wr.do_apriori()
 
 

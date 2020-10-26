@@ -3,6 +3,7 @@ from .. import settings
 import os
 from apyori import apriori
 import logging
+from fpgrowth_py import fpgrowth
 
 logger = logging.getLogger('log')
 
@@ -80,14 +81,19 @@ class warn_relation:
 
     def do_apriori(self):
         for i in self.all_gr_data:
-            if len(i) >= 2:
-                self.apro.append(list(map(lambda x: str(x), i)))
-        results = list(apriori(self.apro, min_confidence=0.001, min_support=0.001, min_lift=1))
+            if len(i) >= 2 and len(set(i)) >= 2:
+                self.apro.append(list(set(i)))
+        freqItemSet, rules = fpgrowth(self.apro, minSupRatio=0.02, minConf=0.02)
+        #results = list(apriori(self.apro, min_confidence=0.001, min_support=0.001, min_lift=1))
         j_resu = []
-        for k, v in enumerate(results):
-            if len(v.items) >= 2:
-                j_resu.append(list(v.items))
+        # for k, v in enumerate(rules):
+        #     if len(v.items) >= 2:
+        #         j_resu.append(list(v.items))
+        #         print(list(v.items))
                 # j_resu['support'].append(v.support)
+        for i in rules:
+            if len(i) == 3 and len(i[0]) == 1 and len(i[1]) == 1 and type(i[2]) == float:
+                j_resu.append([list(j)[0] for j in i[0:2]])
         return j_resu
 
 
